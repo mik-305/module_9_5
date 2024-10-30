@@ -14,13 +14,13 @@ class Iterator:
     def __next__(self):
         current_velue = self.pointer                   # Сохраняем текущее значение
         if self.step > 0 and (self.start < self.stop): # Если шаг положительный и границы соответсвуют
-            while self.pointer < self.stop:
+            while self.pointer <= self.stop:
                 self.pointer += self.step
                 return current_velue
-        if self.step < 0 and (self.start > self.stop): # Если шаг отрицательный
-            while self.pointer > self.stop:
+        if self.step < 0 and (self.start > self.stop): # Если шаг отрицательный и границы наоборот
+            while self.pointer >= self.stop:
                 self.pointer += self.step
-                return current_velue
+                return self.pointer + 1
 
 
 
@@ -49,6 +49,10 @@ print()
 for i in iter4:
     print(i, end=' ')
 print()
+for i in iter5:
+    print(i, end=' ')
+print()
+
 for i in iter5:
     print(i, end=' ')
 print('')
